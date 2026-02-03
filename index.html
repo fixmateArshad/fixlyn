@@ -5,271 +5,220 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FixMate | Laptop Repair Bangalore</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 body {
-  margin:0;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background:#eef2f7;
-  color:#222;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f4f8;
+  color: #222;
 }
 
-/* Header */
 header {
   background: linear-gradient(90deg, #0a3cff, #0051ff);
-  color:#fff;
-  padding:35px 16px;
-  text-align:center;
-  box-shadow:0 6px 20px rgba(0,0,0,0.15);
-  border-bottom-left-radius:25px;
-  border-bottom-right-radius:25px;
+  color: white;
+  padding: 30px 15px;
+  text-align: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
-header h1 {margin:0; font-size:32px; font-weight:700;}
-header p {margin:5px 0 0; font-size:17px;}
 
-/* Container two-column layout */
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+header p {
+  margin-top: 8px;
+  font-size: 16px;
+}
+
 .container {
   max-width: 1100px;
-  margin:20px auto;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  padding:0 16px;
+  margin: 20px auto;
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Cards */
 .card {
-  background:#fff;
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  flex:1 1 400px;
-  transition:transform 0.3s, box-shadow 0.3s;
-}
-.card:hover {transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.15);}
-.card h2 {color:#0a3cff; margin-top:0; text-align:center;}
-
-/* Service list */
-.card ul {list-style:none; padding-left:0;}
-.card ul li {
-  padding:12px 0;
-  border-bottom:1px solid #eee;
-  display:flex;
-  align-items:center;
-  font-size:16px;
-  font-weight:500;
-}
-.card ul li i {
-  color:#0a3cff;
-  margin-right:12px;
-  width:24px;
-  text-align:center;
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  flex: 1 1 320px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Form Inputs */
-input, select, textarea {
-  width:100%;
-  padding:14px;
-  margin-bottom:16px;
-  border-radius:12px;
-  border:1px solid #ccc;
-  font-size:16px;
-  box-sizing:border-box;
+.card h2 {
+  color: #0a3cff;
+  text-align: center;
+  margin-top: 0;
 }
 
-/* Buttons */
-button, .map-btn {
-  width:100%;
-  padding:16px;
-  font-size:17px;
-  border:none;
-  border-radius:16px;
-  background: linear-gradient(90deg,#0a3cff,#0051ff);
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 6px 20px rgba(0,0,0,0.25);
+.services li {
+  list-style: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-weight: 500;
 }
-button:hover, .map-btn:hover {background:linear-gradient(90deg,#0051ff,#0a3cff); transform:scale(1.03);}
 
-/* Trust Section */
+.services i {
+  color: #0a3cff;
+  margin-right: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #0a3cff, #0051ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
 .trust li {
-  margin-bottom:10px;
-  list-style:none;
-  padding-left:25px;
-  position:relative;
-  font-weight:500;
+  list-style: none;
+  margin-bottom: 12px;
+  padding-left: 35px;
+  position: relative;
+  font-weight: 500;
 }
+
 .trust li::before {
-  content:"\f00c";
-  font-family:"Font Awesome 6 Free";
-  font-weight:900;
-  position:absolute;
-  left:0;
-  color:#0a3cff;
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #0a3cff;
 }
 
-/* Footer */
 footer {
-  text-align:center;
-  font-size:14px;
-  color:#666;
-  padding:20px;
-  background:#f0f0f0;
-  border-top:1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  padding: 20px;
 }
 
-/* Responsive */
 @media(max-width:900px){
-  .container{flex-direction:column;}
+  .container {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>FixMate</h1>
-<p>Laptop Repair at Your Doorstep – Bangalore</p>
+  <h1>FixMate</h1>
+  <p>Laptop Repair at Your Doorstep – Bangalore</p>
 </header>
 
 <div class="container">
 
-<!-- Services Card -->
-<div class="card">
-<h2>Our Services</h2>
-<ul>
-<li><i class="fas fa-laptop"></i> Laptop Not Powering On</li>
-<li><i class="fas fa-desktop"></i> No Display / Screen Issue</li>
-<li><i class="fas fa-tachometer-alt"></i> Slow / Hanging Laptop</li>
-<li><i class="fas fa-memory"></i> SSD / RAM Upgrade</li>
-<li><i class="fas fa-cogs"></i> Software / OS Issues</li>
-<li><i class="fas fa-truck"></i> Pickup & Lab Repair</li>
-</ul>
-</div>
+  <div class="card">
+    <h2>Our Services</h2>
+    <ul class="services">
+      <li><i class="fas fa-laptop"></i> Laptop Not Powering On</li>
+      <li><i class="fas fa-desktop"></i> No Display Issue</li>
+      <li><i class="fas fa-tachometer-alt"></i> Slow / Hanging</li>
+      <li><i class="fas fa-memory"></i> SSD / RAM Upgrade</li>
+      <li><i class="fas fa-cogs"></i> Software Problems</li>
+      <li><i class="fas fa-truck"></i> Pickup & Lab Repair</li>
+    </ul>
+  </div>
 
-<!-- Booking Form Card -->
-<div class="card">
-<h2>Book Laptop Service</h2>
-<input id="name" placeholder="Your Name">
-<input id="address" placeholder="Full Address (House, Street, Landmark)">
-<button class="map-btn" onclick="selectMap()">Select Location on Map</button>
-<select id="areaSelect"><option value="">Select Your Area</option></select>
-<input id="pincode" placeholder="Or enter your Pincode" type="number">
-<select id="issue">
-<option value="">Select Laptop Issue</option>
-<option>Not Powering On</option>
-<option>No Display</option>
-<option>Slow / Hanging</option>
-<option>SSD / RAM Upgrade</option>
-<option>Software Issue</option>
-<option>Pickup & Lab Repair</option>
-<option>Other / Not Listed</option>
-</select>
-<select id="time">
-<option value="">Preferred Time Slot</option>
-<option>10 AM – 12 PM</option>
-<option>12 PM – 2 PM</option>
-<option>2 PM – 4 PM</option>
-<option>4 PM – 6 PM</option>
-</select>
-<select id="service">
-<option value="">Service Type</option>
-<option>Home Service</option>
-<option>Pickup & Drop</option>
-</select>
-<button onclick="sendWhatsApp()">Book on WhatsApp</button>
-</div>
+  <div class="card">
+    <h2>Book Laptop Service</h2>
 
-<!-- Trust Card -->
-<div class="card">
-<h2>Why Choose FixMate?</h2>
-<ul class="trust">
-<li>Experienced Laptop Technician</li>
-<li>Genuine Parts Used</li>
-<li>Invoice Provided</li>
-<li>Laptop Serial Number Recorded</li>
-<li>Secure Pickup & Drop</li>
-<li>Fast Response & Customer Support</li>
-</ul>
-</div>
+    <input id="name" placeholder="Your Name">
+    <input id="address" placeholder="Full Address with Landmark">
+
+    <select id="area">
+      <option value="">Select Your Area</option>
+      <option>Whitefield</option>
+      <option>Marathahalli</option>
+      <option>Sarjapur</option>
+      <option>Koramangala</option>
+      <option>HSR Layout</option>
+      <option>Electronics City</option>
+    </select>
+
+    <select id="issue">
+      <option value="">Select Issue</option>
+      <option>Not Powering On</option>
+      <option>No Display</option>
+      <option>Slow / Hanging</option>
+      <option>SSD / RAM Upgrade</option>
+      <option>Software Issue</option>
+      <option>Pickup & Lab Repair</option>
+      <option>Other</option>
+    </select>
+
+    <select id="time">
+      <option value="">Preferred Time</option>
+      <option>10 AM – 12 PM</option>
+      <option>12 PM – 2 PM</option>
+      <option>2 PM – 4 PM</option>
+      <option>4 PM – 6 PM</option>
+    </select>
+
+    <button onclick="book()">Book on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <h2>Why Choose FixMate?</h2>
+    <ul class="trust">
+      <li>Experienced Laptop Technician</li>
+      <li>Invoice Provided</li>
+      <li>Secure Pickup & Drop</li>
+      <li>Genuine Parts</li>
+      <li>Bangalore Based Service</li>
+    </ul>
+  </div>
 
 </div>
 
 <footer>© FixMate – Laptop Repair Bangalore</footer>
 
 <script>
-// Serviceable areas
-const serviceableAreas = [
-  {area:"Whitefield", pincode:"560066"},
-  {area:"Marathahalli", pincode:"560037"},
-  {area:"Sarjapur", pincode:"560035"},
-  {area:"HSR Layout", pincode:"560102"},
-  {area:"Koramangala", pincode:"560034"},
-  {area:"Electronics City", pincode:"560100"}
-];
+function book() {
+  const name = document.getElementById("name").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const area = document.getElementById("area").value;
+  const issue = document.getElementById("issue").value;
+  const time = document.getElementById("time").value;
 
-// Fill area dropdown
-const areaSelect = document.getElementById("areaSelect");
-serviceableAreas.forEach(item=>{
-  const opt=document.createElement("option");
-  opt.value=item.area;
-  opt.textContent=item.area;
-  areaSelect.appendChild(opt);
-});
-
-// WhatsApp number
-const phone="917338214137"; 
-
-function sendWhatsApp(){
-  const name=document.getElementById("name").value.trim();
-  const address=document.getElementById("address").value.trim();
-  const area=document.getElementById("areaSelect").value.trim();
-  const pincode=document.getElementById("pincode").value.trim();
-  const issue=document.getElementById("issue").value.trim();
-  const time=document.getElementById("time").value.trim();
-  const service=document.getElementById("service").value.trim();
-
-  if(!name || !address || (!area && !pincode) || !issue || !time || !service){
+  if (!name || !address || !area || !issue || !time) {
     alert("Please fill all details");
     return;
   }
 
-  let serviceable = false;
-
-// Check by AREA
-if (area) {
-  serviceable = serviceableAreas.some(
-    a => a.area.toLowerCase() === area.toLowerCase()
-  );
-}
-
-// If area not selected, check by PINCODE
-if (!area && pincode) {
-  serviceable = serviceableAreas.some(
-    a => a.pincode === pincode
-  );
-}
-
-// Final block
-if (!serviceable) {
-  alert("Currently unserviceable location. We serve only selected areas in Bangalore.");
-  return;
-}
-
-  const selectedArea = area ? area : `Pincode: ${pincode}`;
-  const message = encodeURIComponent(
-    `Hello FixMate,\nName: ${name}\nAddress: ${address}\nArea: ${selectedArea}\nLaptop Issue: ${issue}\nService Type: ${service}\nPreferred Time: ${time}`
+  const phone = "917338214137";
+  const msg = encodeURIComponent(
+    `Hello FixMate,\n\nName: ${name}\nAddress: ${address}\nArea: ${area}\nIssue: ${issue}\nPreferred Time: ${time}`
   );
 
-  window.location.href = `https://wa.me/${phone}?text=${message}`;
-}
-
-// Google Maps picker simulation
-function selectMap(){
-  const addressField = document.getElementById("address");
-  // Opens Google Maps for the user to pick location manually
-  window.open("https://www.google.com/maps", "_blank");
-  alert("After selecting location on Google Maps, please copy your address into the 'Full Address' field.");
+  window.location.href = `https://wa.me/${phone}?text=${msg}`;
 }
 </script>
 
