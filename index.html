@@ -234,14 +234,27 @@ function sendWhatsApp(){
     return;
   }
 
-  let serviceable=false;
-  if(area && serviceableAreas.some(a=>a.area===area)) serviceable=true;
-  if(pincode && serviceableAreas.some(a=>a.pincode===pincode)) serviceable=true;
+  let serviceable = false;
 
-  if(!serviceable){
-    alert("Currently Unserviceable. Sorry, we do not service your area yet.");
-    return;
-  }
+// Check by AREA
+if (area) {
+  serviceable = serviceableAreas.some(
+    a => a.area.toLowerCase() === area.toLowerCase()
+  );
+}
+
+// If area not selected, check by PINCODE
+if (!area && pincode) {
+  serviceable = serviceableAreas.some(
+    a => a.pincode === pincode
+  );
+}
+
+// Final block
+if (!serviceable) {
+  alert("Currently unserviceable location. We serve only selected areas in Bangalore.");
+  return;
+}
 
   const selectedArea = area ? area : `Pincode: ${pincode}`;
   const message = encodeURIComponent(
