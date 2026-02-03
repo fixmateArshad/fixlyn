@@ -5,54 +5,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>FixMate | Laptop Repair Bangalore</title>
 <style>
+/* Reset and body */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f5f7fa;
   color: #222;
 }
+
+/* Header */
 header {
   background: #0a3cff;
   color: #fff;
-  padding: 16px;
+  padding: 20px 16px;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+header h1 { margin: 0; font-size: 26px; }
+header p { margin: 4px 0 0; font-size: 16px; }
+
+/* Sections */
 section {
   padding: 16px;
 }
+
+/* Cards */
 .card {
   background: #fff;
-  border-radius: 10px;
-  padding: 14px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-h2 { margin-top:0; }
+
+/* Headings */
+h2 { margin-top:0; color: #0a3cff; }
+
+/* Buttons */
 button {
   width: 100%;
-  padding: 14px;
-  font-size: 16px;
+  padding: 16px;
+  font-size: 17px;
   border: none;
-  border-radius: 8px;
-  background: #0a3cff;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #0a3cff, #0051ff);
   color: #fff;
   cursor: pointer;
+  transition: background 0.3s;
 }
+button:hover {
+  background: linear-gradient(90deg, #0051ff, #0a3cff);
+}
+
+/* Inputs and selects */
 input, select {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin-top: 8px;
-  margin-bottom: 12px;
-  border-radius: 6px;
+  margin-bottom: 14px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 15px;
 }
-.trust li { margin-bottom: 6px; }
+
+/* Trust section */
+.trust li { margin-bottom: 8px; }
+
+/* Footer */
 footer {
   text-align: center;
   font-size: 14px;
   color: #666;
-  padding: 10px;
+  padding: 12px;
 }
 </style>
 </head>
@@ -64,6 +88,7 @@ footer {
 </header>
 
 <section>
+<!-- Services -->
 <div class="card">
 <h2>Laptop Services</h2>
 <ul>
@@ -76,6 +101,7 @@ footer {
 </ul>
 </div>
 
+<!-- Booking Form -->
 <div class="card">
 <h2>Book Laptop Service</h2>
 
@@ -99,6 +125,7 @@ footer {
   <option>SSD / RAM Upgrade</option>
   <option>Software Issue</option>
   <option>Pickup & Lab Repair</option>
+  <option>Other / Not Listed</option>
 </select>
 
 <select id="time">
@@ -116,18 +143,22 @@ footer {
 </select>
 
 <button onclick="sendWhatsApp()">Book on WhatsApp</button>
+
 </div>
 
+<!-- Trust Section -->
 <div class="card">
 <h2>Why FixMate?</h2>
 <ul class="trust">
   <li>✔ Experienced Laptop Technician</li>
+  <li>✔ Genuine Parts Used</li>
   <li>✔ Invoice Provided</li>
   <li>✔ Laptop Serial Number Recorded</li>
   <li>✔ Secure Pickup & Drop</li>
-  <li>✔ Transparent Pricing</li>
+  <li>✔ Fast Response & Customer Support</li>
 </ul>
 </div>
+
 </section>
 
 <footer>
@@ -143,6 +174,36 @@ const phone = "91XXXXXXXXXX"; // ADD YOUR NUMBER HERE
 
 function sendWhatsApp() {
   const name = document.getElementById("name").value;
+  const area = document.getElementById("area").value;
+  const issue = document.getElementById("issue").value;
+  const time = document.getElementById("time").value;
+  const service = document.getElementById("service").value;
+
+  if (!name || !area || !issue || !time || !service) {
+    alert("Please fill all details");
+    return;
+  }
+
+  // Check if area is serviceable
+  if (!serviceableAreas.includes(area)) {
+    alert("Currently Unserviceable. Sorry, we do not service your area yet.");
+    return;
+  }
+
+  const message =
+    `Hello FixMate,%0A` +
+    `Name: ${name}%0A` +
+    `Area: ${area}%0A` +
+    `Laptop Issue: ${issue}%0A` +
+    `Service Type: ${service}%0A` +
+    `Preferred Time: ${time}`;
+
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
+
+</body>
+</html>  const name = document.getElementById("name").value;
   const area = document.getElementById("area").value;
   const issue = document.getElementById("issue").value;
   const time = document.getElementById("time").value;
