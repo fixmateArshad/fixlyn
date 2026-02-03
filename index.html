@@ -23,9 +23,6 @@ header {
   border-bottom-right-radius: 25px;
 }
 
-header h1 { margin: 0; font-size: 32px; }
-header p { margin-top: 8px; font-size: 16px; }
-
 .container {
   max-width: 1100px;
   margin: 20px auto;
@@ -47,18 +44,6 @@ header p { margin-top: 8px; font-size: 16px; }
   color: #0a3cff;
   text-align: center;
   margin-top: 0;
-}
-
-.services li {
-  list-style: none;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  font-weight: 500;
-}
-
-.services i {
-  color: #0a3cff;
-  margin-right: 10px;
 }
 
 input, select {
@@ -93,7 +78,6 @@ button.secondary {
   margin-bottom: 12px;
   padding-left: 35px;
   position: relative;
-  font-weight: 500;
 }
 
 .trust li::before {
@@ -113,8 +97,24 @@ footer {
   padding: 20px;
 }
 
-@media(max-width:900px){
-  .container { flex-direction: column; }
+/* Invoice */
+#invoice {
+  display: none;
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.invoice-row {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.invoice-row strong {
+  color: #0a3cff;
 }
 </style>
 </head>
@@ -126,32 +126,18 @@ footer {
   <p>Laptop Repair at Your Doorstep – Bangalore</p>
 </header>
 
-<div class="container">
-
-  <div class="card">
-    <h2>Our Services</h2>
-    <ul class="services">
-      <li><i class="fas fa-laptop"></i> Laptop Not Powering On</li>
-      <li><i class="fas fa-desktop"></i> No Display Issue</li>
-      <li><i class="fas fa-tachometer-alt"></i> Slow / Hanging</li>
-      <li><i class="fas fa-memory"></i> SSD / RAM Upgrade</li>
-      <li><i class="fas fa-cogs"></i> Software Problems</li>
-      <li><i class="fas fa-truck"></i> Pickup & Lab Repair</li>
-    </ul>
-  </div>
+<div class="container" id="formSection">
 
   <div class="card">
     <h2>Book Laptop Service</h2>
 
     <input id="name" placeholder="Your Name">
-    <input id="address" placeholder="Full Address or Location Link">
+    <input id="address" placeholder="Full Address or Google Maps link">
 
-    <button class="secondary" onclick="getLocation()">
-      📍 Use My Current Location
-    </button>
+    <button class="secondary" onclick="getLocation()">📍 Use My Current Location</button>
 
     <select id="area">
-      <option value="">Select Your Area</option>
+      <option value="">Select Area</option>
       <option>Whitefield</option>
       <option>Marathahalli</option>
       <option>Sarjapur</option>
@@ -168,7 +154,6 @@ footer {
       <option>SSD / RAM Upgrade</option>
       <option>Software Issue</option>
       <option>Pickup & Lab Repair</option>
-      <option>Other</option>
     </select>
 
     <select id="time">
@@ -179,43 +164,48 @@ footer {
       <option>4 PM – 6 PM</option>
     </select>
 
-    <button onclick="book()">Book on WhatsApp</button>
+    <button onclick="showInvoice()">Proceed</button>
   </div>
 
   <div class="card">
     <h2>Why Choose FixMate?</h2>
     <ul class="trust">
-      <li>Experienced Laptop Technician</li>
       <li>Invoice Provided</li>
       <li>Secure Pickup & Drop</li>
-      <li>Genuine Parts</li>
+      <li>Experienced Technician</li>
       <li>Bangalore Based Service</li>
     </ul>
   </div>
 
 </div>
 
+<!-- INVOICE -->
+<div id="invoice">
+  <h2 style="text-align:center;">Booking Summary</h2>
+  <div class="invoice-row"><strong>Booking ID:</strong> <span id="bid"></span></div>
+  <div class="invoice-row"><strong>Name:</strong> <span id="iName"></span></div>
+  <div class="invoice-row"><strong>Address:</strong> <span id="iAddress"></span></div>
+  <div class="invoice-row"><strong>Area:</strong> <span id="iArea"></span></div>
+  <div class="invoice-row"><strong>Issue:</strong> <span id="iIssue"></span></div>
+  <div class="invoice-row"><strong>Time Slot:</strong> <span id="iTime"></span></div>
+  <div class="invoice-row"><strong>Date:</strong> <span id="iDate"></span></div>
+
+  <button onclick="sendWhatsApp()">Confirm & Send on WhatsApp</button>
+</div>
+
 <footer>© FixMate – Laptop Repair Bangalore</footer>
 
 <script>
-function getLocation() {
-  if (!navigator.geolocation) {
-    alert("Geolocation not supported");
-    return;
-  }
+let bookingData = {};
 
-  navigator.geolocation.getCurrentPosition(
-    position => {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      document.getElementById("address").value =
-        `https://maps.google.com/?q=${lat},${lng}`;
-    },
-    () => alert("Please allow location access")
-  );
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(pos => {
+    document.getElementById("address").value =
+      `https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude}`;
+  });
 }
 
-function book() {
+function showInvoice() {
   const name = document.getElementById("name").value.trim();
   const address = document.getElementById("address").value.trim();
   const area = document.getElementById("area").value;
@@ -227,11 +217,29 @@ function book() {
     return;
   }
 
+  bookingData = {
+    id: "FM" + Date.now(),
+    name, address, area, issue, time,
+    date: new Date().toLocaleString()
+  };
+
+  document.getElementById("bid").innerText = bookingData.id;
+  document.getElementById("iName").innerText = name;
+  document.getElementById("iAddress").innerText = address;
+  document.getElementById("iArea").innerText = area;
+  document.getElementById("iIssue").innerText = issue;
+  document.getElementById("iTime").innerText = time;
+  document.getElementById("iDate").innerText = bookingData.date;
+
+  document.getElementById("formSection").style.display = "none";
+  document.getElementById("invoice").style.display = "block";
+}
+
+function sendWhatsApp() {
   const phone = "917338214137";
   const msg = encodeURIComponent(
-    `Hello FixMate,\n\nName: ${name}\nAddress / Location: ${address}\nArea: ${area}\nIssue: ${issue}\nPreferred Time: ${time}`
+    `FixMate Booking Confirmed\n\nBooking ID: ${bookingData.id}\nName: ${bookingData.name}\nAddress: ${bookingData.address}\nArea: ${bookingData.area}\nIssue: ${bookingData.issue}\nTime: ${bookingData.time}\nDate: ${bookingData.date}`
   );
-
   window.location.href = `https://wa.me/${phone}?text=${msg}`;
 }
 </script>
