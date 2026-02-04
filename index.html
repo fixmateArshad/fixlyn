@@ -6,17 +6,21 @@
 <title>FixMate – Laptop Repair Bangalore</title>
 
 <style>
+*{ box-sizing:border-box; }
+
 body{
   margin:0;
   font-family:system-ui, Arial, sans-serif;
-  background:#f6f7f5;
+  background:#f3f4f2;
   color:#222;
 }
+
 .container{
   max-width:480px;
   margin:auto;
   padding:16px;
 }
+
 header{
   text-align:center;
   margin-bottom:18px;
@@ -31,34 +35,41 @@ header p{
 }
 
 .card{
-  background:#fff;
-  border-radius:14px;
+  background:#ffffff;
+  border-radius:16px;
   padding:16px;
   margin-bottom:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  box-shadow:0 10px 24px rgba(0,0,0,0.08);
 }
+
 .card h3{
-  margin-top:0;
+  margin:0 0 12px 0;
   color:#3a5a40;
+  font-size:17px;
 }
 
 input, select, textarea{
   width:100%;
-  padding:10px;
-  margin-top:6px;
+  padding:12px;
   margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
+  border-radius:10px;
+  border:1px solid #d1d5db;
   font-size:14px;
+  background:#fafafa;
+}
+
+textarea{
+  resize:none;
+  height:80px;
 }
 
 button{
   width:100%;
-  padding:12px;
+  padding:14px;
   border:none;
-  border-radius:10px;
+  border-radius:12px;
   background:#3a5a40;
-  color:white;
+  color:#fff;
   font-size:16px;
   cursor:pointer;
 }
@@ -73,8 +84,8 @@ button:hover{
 
 .trust li{
   list-style:none;
-  padding-left:22px;
-  margin-bottom:6px;
+  padding-left:24px;
+  margin-bottom:8px;
   position:relative;
 }
 .trust li::before{
@@ -98,11 +109,11 @@ button:hover{
 <!-- CUSTOMER DETAILS -->
 <div class="card">
   <h3>Your Details</h3>
-  <input id="name" placeholder="Your Name">
-  <input id="phone" placeholder="Mobile Number" value="7338214137">
+  <input id="custName" placeholder="Your Name">
+  <input id="custPhone" placeholder="Mobile Number" value="7338214137">
 </div>
 
-<!-- PROBLEM SECTION -->
+<!-- PROBLEM -->
 <div class="card">
   <h3>Select Problem</h3>
   <select id="issue">
@@ -156,35 +167,37 @@ button:hover{
 <div class="card">
   <h3>Why Choose FixMate</h3>
   <ul class="trust">
-    <li>Doorstep Service</li>
+    <li>Doorstep Laptop Service</li>
     <li>Transparent Pricing</li>
     <li>Invoice for Pickup</li>
-    <li>Bangalore Local Technician</li>
+    <li>Trusted Local Technician</li>
   </ul>
 </div>
 
 </div>
 
 <script>
-/* NEXT DAY DATE DEFAULT */
+/* DEFAULT NEXT DAY */
 const dateInput = document.getElementById("date");
 const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
+tomorrow.setDate(tomorrow.getDate()+1);
 dateInput.value = tomorrow.toISOString().split("T")[0];
 
 /* ALLOWED PINCODES */
 const allowedPincodes = [
   "560066","560067","560087","560037","560035",
   "560103","560102","560034","560095",
-  "560100","560099","560048",
-  "560026"
+  "560100","560099","560048","560026"
 ];
 
-/* LOCATION DETECTION */
+let mapsLink = "";
+
+/* LOCATION */
 function getLocation(){
   navigator.geolocation.getCurrentPosition(async pos=>{
     const lat = pos.coords.latitude;
     const lon = pos.coords.longitude;
+    mapsLink = `https://maps.google.com/?q=${lat},${lon}`;
 
     const res = await fetch(
       `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
@@ -205,18 +218,21 @@ function getLocation(){
     document.getElementById("pincode").value = pincode;
     document.getElementById("area").value = area;
 
-    alert("✅ Service available in your location");
+    alert("✅ Service available at your location");
   },
   ()=>alert("Unable to detect location"));
 }
 
 /* WHATSAPP */
 function sendWhatsApp(){
+  const name = document.getElementById("custName").value;
+  const phone = document.getElementById("custPhone").value;
+
   const msg =
 `FixMate Laptop Service Booking
 
-Name: ${name.value}
-Phone: ${phone.value}
+Name: ${name}
+Phone: ${phone}
 
 Issue: ${issue.value}
 
@@ -225,8 +241,11 @@ ${building.value}, ${flat.value}
 ${street.value}
 ${area.value} - ${pincode.value}
 
-Date: ${date.value}
-Time: ${time.value}`;
+Service Date: ${date.value}
+Time Slot: ${time.value}
+
+Location:
+${mapsLink}`;
 
   window.open(
     `https://wa.me/917338214137?text=${encodeURIComponent(msg)}`
