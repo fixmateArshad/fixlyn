@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FixMate – Laptop Repair Bangalore</title>
+
+<title>Fixlyn – Laptop Repair at Doorstep in Bangalore</title>
+<meta name="description" content="Fixlyn provides professional laptop repair at your doorstep in Bangalore. Book trusted laptop service with transparent inspection charge ₹159.">
+<meta name="keywords" content="Laptop repair Bangalore, doorstep laptop service, Fixlyn laptop repair, laptop service near me">
 
 <style>
-*{box-sizing:border-box;}
+*{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:system-ui,Arial,sans-serif;
-  background:#F7F4F2;
-  color:#222;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#f4f6f5;
+  color:#1f2933;
 }
 
 .container{
@@ -23,33 +26,37 @@ body{
 
 header{
   text-align:center;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
-header h1{
-  margin:0;
-  color:#7A1F2B;
-  letter-spacing:.3px;
+
+.logo{
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:.5px;
+  color:#2f3e46;
 }
-header p{
+
+.tagline{
   font-size:14px;
-  color:#555;
+  color:#5f6f73;
+  margin-top:4px;
 }
 
 .card{
-  background:#ffffff;
-  border-radius:16px;
+  background:#fff;
+  border-radius:18px;
   padding:16px;
   margin-bottom:16px;
-  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
 }
 
 .card h3{
   margin:0 0 12px;
-  color:#7A1F2B;
   font-size:16px;
+  color:#354f52;
 }
 
-input,select,textarea{
+input,select{
   width:100%;
   padding:12px;
   margin-bottom:12px;
@@ -59,14 +66,12 @@ input,select,textarea{
   font-size:14px;
 }
 
-textarea{resize:none;height:80px;}
-
 button{
   width:100%;
   padding:14px;
   border:none;
-  border-radius:12px;
-  background:#7A1F2B;
+  border-radius:14px;
+  background:#354f52;
   color:#fff;
   font-size:15px;
   font-weight:500;
@@ -74,55 +79,60 @@ button{
 }
 
 button:disabled{
-  background:#cfa3a8;
-  cursor:not-allowed;
+  background:#9db1b3;
 }
 
 .toggle{
   display:flex;
   gap:10px;
 }
+
 .toggle button{
   flex:1;
-  background:#f1e4e6;
-  color:#222;
+  background:#e8eeed;
+  color:#1f2933;
 }
+
 .toggle button.active{
-  background:#7A1F2B;
+  background:#354f52;
   color:#fff;
 }
 
 .priceBox{
-  background:#FCEEEE;
+  background:#edf4f3;
   padding:12px;
   border-radius:10px;
   font-size:14px;
-  color:#7A1F2B;
+  color:#1f3d3a;
+  display:none;
 }
 
-.small{font-size:13px;color:#666;}
+.small{
+  font-size:13px;
+  color:#6b7280;
+}
 
 .loader{
   display:none;
   text-align:center;
   font-size:13px;
-  color:#9E2A2B;
+  color:#354f52;
   margin-top:8px;
 }
+
 .loader span{
   display:inline-block;
   width:18px;
   height:18px;
-  border:3px solid #e5c6c9;
-  border-top:3px solid #9E2A2B;
+  border:3px solid #cfd8d7;
+  border-top:3px solid #354f52;
   border-radius:50%;
   animation:spin 1s linear infinite;
   vertical-align:middle;
   margin-right:6px;
 }
-@keyframes spin{
-  to{transform:rotate(360deg);}
-}
+
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 
@@ -130,8 +140,8 @@ button:disabled{
 <div class="container">
 
 <header>
-  <h1>FixMate</h1>
-  <p>Laptop Repair at Your Doorstep – Bangalore</p>
+  <div class="logo">Fixlyn</div>
+  <div class="tagline">Laptop Repair at Your Doorstep – Bangalore</div>
 </header>
 
 <div class="card">
@@ -141,24 +151,23 @@ button:disabled{
 </div>
 
 <div class="card">
-  <h3>Select Problem</h3>
-  <select id="issue" onchange="updatePrice()">
-    <option value="">-- Select Laptop Issue --</option>
-    <option>General Inspection</option>
+  <h3>Select Laptop Issue</h3>
+  <select id="issue" onchange="showPrice()">
+    <option value="">-- Select Issue --</option>
     <option>No Power / Dead Laptop</option>
-    <option>No Display / Screen Issue</option>
-    <option>Battery / Charging Issue</option>
+    <option>Screen Issue / No Display</option>
     <option>Laptop Slow / Hanging</option>
+    <option>Battery / Charging Issue</option>
     <option>Keyboard / Touchpad Issue</option>
-    <option>Heating / Fan Noise</option>
-    <option>OS / Software Issue</option>
-    <option>Virus / Data Issue</option>
+    <option>Overheating / Fan Noise</option>
+    <option>OS / Software Problem</option>
+    <option>Data Recovery</option>
     <option>Others</option>
   </select>
 
   <div class="priceBox" id="priceBox">
-    Inspection Charge: ₹159<br>
-    <span class="small">Adjusted in final bill if repair is done</span>
+    Inspection Charge: <b>₹159</b><br>
+    <span class="small">Final repair cost after inspection</span>
   </div>
 </div>
 
@@ -166,16 +175,14 @@ button:disabled{
   <h3>Service Type</h3>
   <div class="toggle">
     <button id="doorstepBtn" class="active" onclick="setService('Doorstep')">Doorstep</button>
-    <button id="pickupBtn" onclick="setService('Pickup')">Pickup & Drop</button>
+    <button id="pickupBtn" onclick="setService('Pickup & Drop')">Pickup & Drop</button>
   </div>
 </div>
 
 <div class="card">
   <h3>Service Location</h3>
   <button id="locBtn" onclick="getLocation()">📍 Detect My Location</button>
-  <div class="loader" id="loader">
-    <span></span>Detecting location…
-  </div>
+  <div class="loader" id="loader"><span></span>Detecting location…</div>
   <input id="area" placeholder="Area" readonly>
   <input id="pincode" placeholder="Pincode" readonly>
 </div>
@@ -206,14 +213,14 @@ button:disabled{
 
 <script>
 const allowedPincodes=["560066","560067","560087","560037","560035","560103","560102","560034","560095","560100","560099","560048","560026"];
-let mapsLink="",serviceType="Doorstep";
+let serviceType="Doorstep",mapsLink="";
 
 const tomorrow=new Date();
 tomorrow.setDate(tomorrow.getDate()+1);
 date.value=tomorrow.toISOString().split("T")[0];
 
-function updatePrice(){
-  priceBox.style.display="block";
+function showPrice(){
+  priceBox.style.display = issue.value ? "block" : "none";
 }
 
 function setService(type){
@@ -239,15 +246,13 @@ async function getLocation(){
     locBtn.disabled=false;
 
     if(!allowedPincodes.includes(pin)){
-      alert("❌ Service not available in your area yet");
+      alert("Service not available in your area yet");
       return;
     }
 
     area.value=d.address.suburb||"";
     pincode.value=pin;
-    alert("✅ Service available in your location");
-  },
-  ()=>{
+  },()=>{
     loader.style.display="none";
     locBtn.disabled=false;
     alert("Unable to detect location");
@@ -255,12 +260,13 @@ async function getLocation(){
 }
 
 function sendWhatsApp(){
- const msg=`FixMate Booking
+const msg=`Fixlyn – Laptop Repair Booking
+
 Name: ${custName.value}
 Phone: ${custPhone.value}
 
-Issue: ${issue.options[issue.selectedIndex].text}
-Service: ${serviceType}
+Issue: ${issue.value}
+Service Type: ${serviceType}
 Inspection Charge: ₹159
 
 Address:
@@ -271,10 +277,9 @@ ${area.value} - ${pincode.value}
 Date: ${date.value}
 Time: ${time.value}
 
-Map: ${mapsLink}
+Map: ${mapsLink}`;
 
-${serviceType==="Pickup"?"Pickup invoice will be generated before collection":""}`;
- window.open(`https://wa.me/917338214137?text=${encodeURIComponent(msg)}`);
+window.open(`https://wa.me/917338214137?text=${encodeURIComponent(msg)}`);
 }
 </script>
 
