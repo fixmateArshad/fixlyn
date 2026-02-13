@@ -1,293 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixlyn – Trusted Home Appliance Repair in Bangalore</title>
 
-<title>Fixlyn – Laptop Repair at Doorstep in Bangalore</title>
-<meta name="description" content="Fixlyn offers professional laptop repair at your doorstep in Bangalore. Transparent inspection charge ₹159. No platform fees, no commission.">
-<meta name="keywords" content="Laptop repair Bangalore, doorstep laptop service, Fixlyn laptop repair, laptop service near me">
+  <!-- SEO -->
+  <meta name="description" content="Fixlyn provides reliable laptop, geyser, washing machine, refrigerator and microwave repair services across Bangalore. No platform fees. Direct technicians." />
+  <meta name="keywords" content="Laptop Repair Bangalore, Geyser Repair Bangalore, Washing Machine Repair, Fridge Repair, Microwave Repair, Fixlyn" />
 
-<style>
-*{box-sizing:border-box}
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:#f4f6f5;
-  color:#1f2933;
-}
-
-.container{
-  max-width:480px;
-  margin:auto;
-  padding:16px;
-}
-
-header{
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.logo{
-  font-size:28px;
-  font-weight:700;
-  letter-spacing:.5px;
-  color:#2f3e46;
-}
-
-.tagline{
-  font-size:14px;
-  color:#5f6f73;
-  margin-top:4px;
-}
-
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:16px;
-  margin-bottom:16px;
-  box-shadow:0 8px 22px rgba(0,0,0,.08);
-}
-
-.card h3{
-  margin:0 0 12px;
-  font-size:16px;
-  color:#354f52;
-}
-
-input,select{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:10px;
-  border:1px solid #d1d5db;
-  background:#fafafa;
-  font-size:14px;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  background:#354f52;
-  color:#fff;
-  font-size:15px;
-  font-weight:500;
-  cursor:pointer;
-}
-
-button:disabled{
-  background:#9db1b3;
-}
-
-.priceBox{
-  background:#edf4f3;
-  padding:12px;
-  border-radius:10px;
-  font-size:14px;
-  color:#1f3d3a;
-  display:none;
-}
-
-.small{
-  font-size:13px;
-  color:#6b7280;
-}
-
-.loader{
-  display:none;
-  text-align:center;
-  font-size:13px;
-  color:#354f52;
-  margin-top:8px;
-}
-
-.loader span{
-  display:inline-block;
-  width:18px;
-  height:18px;
-  border:3px solid #cfd8d7;
-  border-top:3px solid #354f52;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-  vertical-align:middle;
-  margin-right:6px;
-}
-
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.list{
-  padding-left:18px;
-  font-size:14px;
-  color:#374151;
-}
-
-.list li{
-  margin-bottom:8px;
-}
-</style>
-</head>
-
-<body>
-<div class="container">
-
-<header>
-  <div class="logo">Fixlyn</div>
-  <div class="tagline">Laptop Repair at Your Doorstep – Bangalore</div>
-</header>
-
-<div class="card">
-  <h3>Your Details</h3>
-  <input id="custName" placeholder="Your Name">
-  <input id="custPhone" placeholder="Mobile Number">
-</div>
-
-<div class="card">
-  <h3>Select Laptop Issue</h3>
-  <select id="issue" onchange="showPrice()">
-    <option value="">-- Select Issue --</option>
-    <option>No Power / Dead Laptop</option>
-    <option>Screen Issue / No Display</option>
-    <option>Laptop Slow / Hanging</option>
-    <option>Battery / Charging Issue</option>
-    <option>Keyboard / Touchpad Issue</option>
-    <option>Overheating / Fan Noise</option>
-    <option>OS / Software Problem</option>
-    <option>Data Recovery</option>
-    <option>Others</option>
-  </select>
-
-  <div class="priceBox" id="priceBox">
-    Inspection Charge: <b>₹159</b><br>
-    <span class="small">Final repair cost after inspection</span>
-  </div>
-</div>
-
-<div class="card">
-  <h3>Service Location</h3>
-  <button id="locBtn" onclick="getLocation()">📍 Detect My Location</button>
-  <div class="loader" id="loader"><span></span>Detecting location…</div>
-  <input id="area" placeholder="Area" readonly>
-  <input id="pincode" placeholder="Pincode" readonly>
-</div>
-
-<div class="card">
-  <h3>Full Address</h3>
-  <input id="building" placeholder="Building / Apartment">
-  <input id="flat" placeholder="Block / Flat">
-  <input id="street" placeholder="Street / Road">
-</div>
-
-<div class="card">
-  <h3>Schedule</h3>
-  <input type="date" id="date">
-  <select id="time">
-    <option>10 AM – 12 PM</option>
-    <option>12 PM – 2 PM</option>
-    <option>2 PM – 4 PM</option>
-    <option>4 PM – 6 PM</option>
-  </select>
-</div>
-
-<div class="card">
-  <h3>Why Choose Fixlyn</h3>
-  <ul class="list">
-    <li>Pay less – <b>no platform fees</b></li>
-    <li><b>No extra taxes or hidden charges</b></li>
-    <li><b>No platform commission</b></li>
-    <li>Direct technician support</li>
-    <li>Transparent inspection charge (₹159)</li>
-    <li>Invoice provided for all repairs</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h3>What Happens After Booking?</h3>
-  <ul class="list">
-    <li>You book service via WhatsApp</li>
-    <li>Fixlyn technician confirms & inspects</li>
-    <li>Repair completed, invoice & warranty shared</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h3>Service Areas</h3>
-  <div class="small">
-    Whitefield, Marathahalli, Sarjapur Road, Bellandur, Koramangala & nearby areas in Bangalore.
-  </div>
-</div>
-
-<div class="card">
-  <button onclick="sendWhatsApp()">📲 Book via WhatsApp</button>
-</div>
-
-</div>
-
-<script>
-const allowedPincodes=["560066","560067","560087","560037","560035","560103","560102","560034","560095","560100","560099","560048","560026"];
-let mapsLink="";
-
-const tomorrow=new Date();
-tomorrow.setDate(tomorrow.getDate()+1);
-date.value=tomorrow.toISOString().split("T")[0];
-
-function showPrice(){
-  priceBox.style.display = issue.value ? "block" : "none";
-}
-
-async function getLocation(){
-  locBtn.disabled=true;
-  loader.style.display="block";
-
-  navigator.geolocation.getCurrentPosition(async pos=>{
-    const lat=pos.coords.latitude,lon=pos.coords.longitude;
-    mapsLink=`https://maps.google.com/?q=${lat},${lon}`;
-
-    const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
-    const d=await r.json();
-    const pin=d.address.postcode||"";
-
-    loader.style.display="none";
-    locBtn.disabled=false;
-
-    if(!allowedPincodes.includes(pin)){
-      alert("Service not available in your area yet");
-      return;
+  <style>
+    :root {
+      --dark: #1f1f1f;
+      --light: #ffffff;
+      --muted: #6b6b6b;
+      --accent: #2f80ed;
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --border: #e6e6e6;
     }
 
-    area.value=d.address.suburb||"";
-    pincode.value=pin;
-  },()=>{
-    loader.style.display="none";
-    locBtn.disabled=false;
-    alert("Unable to detect location");
-  });
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-function sendWhatsApp(){
-const msg=`Fixlyn – Laptop Repair Booking
+    body {
+      background: var(--bg);
+      color: var(--dark);
+    }
 
-Name: ${custName.value}
-Phone: ${custPhone.value}
+    header {
+      background: var(--light);
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-Issue: ${issue.value}
-Inspection Charge: ₹159
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
 
-Address:
-${building.value}, ${flat.value}
-${street.value}
-${area.value} - ${pincode.value}
+    .cta-btn {
+      background: var(--accent);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-Date: ${date.value}
-Time: ${time.value}
+    .hero {
+      padding: 60px 24px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
 
-Map: ${mapsLink}`;
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
 
-window.open(`https://wa.me/919036324311?text=${encodeURIComponent(msg)}`);
-}
-</script>
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .hero span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .services {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px 24px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .why {
+      background: var(--light);
+      padding: 60px 24px;
+    }
+
+    .why h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .why-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .why-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      background: var(--bg);
+    }
+
+    .why-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 30px 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Fixlyn</div>
+    <a class="cta-btn" href="https://wa.me/91XXXXXXXXXX">Book on WhatsApp</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Reliable Home Appliance Repair in <span>Bangalore</span></h1>
+    <p>Direct technicians. No platform fees. No commission. Honest service at the right price.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="service-card">
+      <h3>Laptop Repair</h3>
+      <p>Hardware issues, upgrades, general service and troubleshooting at your doorstep.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Geyser Service</h3>
+      <p>Repair, installation and servicing for all geyser brands.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Washing Machine</h3>
+      <p>Top load, front load repair and maintenance by trained technicians.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Refrigerator</h3>
+      <p>Single door, double door and side-by-side fridge repairs.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Microwave Oven</h3>
+      <p>Solo, grill and convection microwave service and repair.</p>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="why">
+    <h2>Why Choose Fixlyn</h2>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <strong>No Platform Fees</strong>
+        You pay only for the service, nothing extra.
+      </div>
+
+      <div class="why-card">
+        <strong>No Commission</strong>
+        Direct connection with technicians.
+      </div>
+
+      <div class="why-card">
+        <strong>No Hidden Charges</strong>
+        Transparent pricing after inspection.
+      </div>
+
+      <div class="why-card">
+        <strong>Full Bangalore Coverage</strong>
+        We serve all areas across Bangalore.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Fixlyn · Home Appliance Repair Services · Bangalore <br/>
+    Call or WhatsApp: <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a>
+  </footer>
 
 </body>
 </html>
