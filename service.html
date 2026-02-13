@@ -3,57 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Fixlyn Booking</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/service.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="container">
+<section class="services">
   <h2 id="serviceTitle"></h2>
 
-  <label>Select Problem</label>
   <select id="problem"></select>
 
-  <label>Name</label>
-  <input id="name">
+  <input id="name" placeholder="Your Name">
+  <input id="phone" placeholder="Mobile Number">
 
-  <label>Mobile Number</label>
-  <input id="phone">
-
-  <label>Date</label>
   <input type="date" id="date">
-
-  <label>Time</label>
   <select id="time">
-    <option>10 AM – 12 PM</option>
-    <option>12 PM – 2 PM</option>
-    <option>2 PM – 4 PM</option>
-    <option>4 PM – 6 PM</option>
+    <option>10 AM - 12 PM</option>
+    <option>12 PM - 2 PM</option>
+    <option>2 PM - 4 PM</option>
+    <option>4 PM - 6 PM</option>
   </select>
 
-  <button class="location-btn" onclick="detectLocation()">Detect Location</button>
+  <button onclick="detectLocation()">Detect Location</button>
 
   <input id="area" placeholder="Area">
   <input id="pincode" placeholder="Pincode">
 
   <input id="building" placeholder="Apartment / Building">
-  <div class="row">
-    <input id="flat" placeholder="Flat / Room">
-    <input id="block" placeholder="Block / Tower">
-  </div>
-
+  <input id="flat" placeholder="Flat / Room No">
   <textarea id="address" placeholder="Full Address"></textarea>
 
-  <button class="continue-btn" onclick="showReview()">Continue</button>
+  <button onclick="book()">Book on WhatsApp</button>
+</section>
 
-  <div id="reviewBox">
-    <h3>Review</h3>
-    <pre id="reviewText"></pre>
-    <button class="book-btn" onclick="sendWhatsApp()">Book on WhatsApp</button>
-  </div>
-</div>
-
-<script src="js/script.js"></script>
+<script src="js/service.js"></script>
 </body>
 </html>
