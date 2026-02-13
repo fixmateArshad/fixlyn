@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Fixlyn – Home Appliance Repair Bangalore</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixlyn | Appliance Repair Bangalore</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -11,37 +11,30 @@
 
 <header class="hero">
   <h1>Fixlyn</h1>
-  <p>Reliable Home Appliance Repair in Bangalore</p>
+  <p>Reliable Home Appliance Repair Across Bangalore</p>
 </header>
 
 <section class="services">
   <h2>Select a Service</h2>
 
   <div class="grid">
-    <div class="card" onclick="selectService('Laptop Repair')">💻 Laptop Repair</div>
-    <div class="card" onclick="selectService('Washing Machine Repair')">🧺 Washing Machine</div>
-    <div class="card" onclick="selectService('Refrigerator Repair')">❄️ Refrigerator</div>
-    <div class="card" onclick="selectService('Geyser Repair')">🚿 Geyser</div>
-    <div class="card" onclick="selectService('Microwave Repair')">🍽 Microwave</div>
+    <a href="service.html?type=Laptop">💻 Laptop Repair</a>
+    <a href="service.html?type=Washing Machine">🧺 Washing Machine</a>
+    <a href="service.html?type=Refrigerator">❄ Refrigerator</a>
+    <a href="service.html?type=Geyser">🚿 Geyser</a>
+    <a href="service.html?type=Microwave">🍽 Microwave</a>
   </div>
 </section>
 
 <section class="why">
-  <h2>Why Fixlyn?</h2>
+  <h2>Why Choose Fixlyn?</h2>
   <p>
     ✔ No platform fees<br>
     ✔ No commissions<br>
     ✔ No hidden charges<br>
-    ✔ Direct technician support
+    ✔ Direct WhatsApp booking
   </p>
 </section>
-
-<script>
-function selectService(service){
-  localStorage.setItem("selectedService", service);
-  window.location.href = "service.html";
-}
-</script>
 
 </body>
 </html>
