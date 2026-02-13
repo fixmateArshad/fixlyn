@@ -1,54 +1,45 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, sans-serif;
   background: #f8fafc;
+  color: #0f172a;
 }
 
-.header {
-  background: #0f172a;
-  color: white;
-  padding: 30px;
+.top {
   text-align: center;
+  padding: 24px;
 }
 
-.services {
+.logo {
+  width: 58px;
+}
+
+.categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 16px;
   padding: 20px;
 }
 
-.service-card {
+.card {
   background: white;
-  padding: 25px;
+  padding: 22px;
+  border-radius: 14px;
   text-align: center;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #0f172a;
-  font-weight: bold;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
 }
 
 .why {
-  padding: 20px;
-}
-
-.why-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.why-box div {
-  background: #e2e8f0;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-  padding: 15px;
   background: #0f172a;
   color: white;
+  margin: 20px;
+  padding: 22px;
+  border-radius: 16px;
 }
