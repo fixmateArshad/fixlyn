@@ -1,1 +1,78 @@
+*{
+  box-sizing:border-box;
+}
 
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, Arial, sans-serif;
+  background:#f5f7fb;
+  color:#1a1a1a;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:28px 16px 10px;
+}
+
+.logo{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:0.5px;
+}
+
+.tagline{
+  margin-top:6px;
+  font-size:14px;
+  color:#555;
+}
+
+/* SERVICES GRID */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:16px;
+  padding:20px;
+}
+
+.service-card{
+  background:#ffffff;
+  border-radius:18px;
+  padding:26px 16px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 12px 26px rgba(0,0,0,0.08);
+  transition:0.25s ease;
+  font-size:28px;
+}
+
+.service-card span{
+  display:block;
+  margin-top:10px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+}
+
+/* WHY CHOOSE */
+.why{
+  background:#111827;
+  color:#ffffff;
+  margin:20px;
+  padding:22px;
+  border-radius:20px;
+}
+
+.why h2{
+  margin-top:0;
+  font-size:18px;
+}
+
+.why p{
+  font-size:14px;
+  line-height:1.6;
+}
