@@ -1,2 +1,0 @@
-# fixlyn
-Laptop Repair Bangalore 
