@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fixlyn – Home Appliance Repair Bangalore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+<header class="header">
+  <h1 class="logo">Fixlyn</h1>
+  <p class="tagline">Trusted Home Appliance Repair – Bangalore</p>
+</header>
+
+<section class="services">
+  <div class="service-card" onclick="goService('Laptop Repair')">
+    💻
+    <span>Laptop Repair</span>
+  </div>
+  <div class="service-card" onclick="goService('Washing Machine Repair')">
+    🧺
+    <span>Washing Machine</span>
+  </div>
+  <div class="service-card" onclick="goService('Refrigerator Repair')">
+    🧊
+    <span>Refrigerator</span>
+  </div>
+  <div class="service-card" onclick="goService('Microwave Repair')">
+    🍽
+    <span>Microwave</span>
+  </div>
+  <div class="service-card" onclick="goService('Geyser Repair')">
+    🚿
+    <span>Geyser</span>
+  </div>
+</section>
+
+<section class="why">
+  <h2>Why Choose Fixlyn</h2>
+  <p>
+    ✔ No platform fees<br>
+    ✔ No commission<br>
+    ✔ Direct technician booking<br>
+    ✔ Covers full Bangalore<br>
+    ✔ Transparent & affordable service
+  </p>
+</section>
+
+<script>
+function goService(service) {
+  localStorage.setItem("selectedService", service);
+  window.location.href = "service.html";
+}
+</script>
+
+</body>
+</html>
