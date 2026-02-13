@@ -6,15 +6,15 @@ body{
 }
 
 .hero{
-  background:linear-gradient(135deg,#111827,#2563eb);
-  color:white;
-  padding:40px 20px;
+  background:linear-gradient(135deg,#0f172a,#2563eb);
+  color:#fff;
   text-align:center;
+  padding:50px 20px;
 }
 
 .hero h1{
+  font-size:38px;
   margin:0;
-  font-size:32px;
 }
 
 .services{
@@ -25,23 +25,30 @@ body{
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:15px;
-  margin-top:20px;
+  gap:18px;
+  margin-top:25px;
 }
 
-.card{
-  background:white;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+.grid a{
+  background:#fff;
+  padding:22px;
+  border-radius:18px;
+  text-decoration:none;
+  color:#111;
   font-weight:600;
-  cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,0.1);
+  transition:.2s;
+}
+
+.grid a:hover{
+  transform:translateY(-4px);
 }
 
 .why{
+  background:#fff;
   margin:30px 20px;
-  background:white;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.1);
+  text-align:center;
 }
