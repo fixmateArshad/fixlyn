@@ -3,50 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laptop Repair & Service | Fixlyn</title>
-<link rel="stylesheet" href="style.css">
+<title>Laptop Repair & Service in Bangalore | Fixlyn</title>
+
+<style>
+*{box-sizing:border-box;font-family:system-ui,Arial,sans-serif}
+body{
+  margin:0;
+  background:#f4f6f8;
+  color:#1a1a1a;
+}
+.container{
+  max-width:480px;
+  margin:auto;
+  padding:18px;
+}
+header{
+  text-align:center;
+  margin-bottom:20px;
+}
+header h1{
+  margin:0;
+  font-size:26px;
+  letter-spacing:.3px;
+}
+header p{
+  margin-top:6px;
+  font-size:14px;
+  color:#555;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.card h3{
+  margin:0 0 14px;
+  font-size:16px;
+}
+
+input,select{
+  width:100%;
+  padding:13px;
+  margin-bottom:12px;
+  border-radius:10px;
+  border:1px solid #d1d5db;
+  background:#fafafa;
+  font-size:14px;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  background:#111;
+  color:#fff;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+button:disabled{
+  background:#999;
+  cursor:not-allowed;
+}
+
+.small{
+  font-size:13px;
+  color:#666;
+}
+
+.loader{
+  display:none;
+  margin-top:8px;
+  font-size:13px;
+  color:#111;
+  text-align:center;
+}
+.loader span{
+  display:inline-block;
+  width:18px;
+  height:18px;
+  border:3px solid #ccc;
+  border-top:3px solid #111;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  vertical-align:middle;
+  margin-right:6px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
 </head>
 
 <body>
+<div class="container">
 
 <header>
-  <div class="logo">Fixlyn</div>
+  <h1>Fixlyn</h1>
+  <p>Laptop Repair & Service at Your Doorstep – Bangalore</p>
 </header>
 
-<div class="container">
-  <h1>Laptop Repair & Service</h1>
-  <p>We repair all laptop brands across Bangalore.</p>
-
-  <ul>
-    <li>No power / not turning on</li>
-    <li>Screen / display issues</li>
-    <li>Slow or hanging laptop</li>
-    <li>Battery / keyboard issues</li>
-  </ul>
-
-  <button onclick="openForm()">Book Now</button>
+<div class="card">
+  <h3>Your Details</h3>
+  <input id="custName" placeholder="Your Name">
+  <input id="custPhone" placeholder="Mobile Number">
 </div>
 
-<div class="popup" id="popup">
-  <div class="form">
-    <input id="name" placeholder="Your Name">
-    <input id="phone" placeholder="Mobile Number">
-    <input id="area" placeholder="Area (Bangalore)">
-    <button onclick="send()">Send on WhatsApp</button>
+<div class="card">
+  <h3>Select Laptop Problem</h3>
+  <select id="issue">
+    <option value="">-- Select Issue --</option>
+    <option>No Power / Dead Laptop</option>
+    <option>No Display / Screen Issue</option>
+    <option>Laptop Slow / Hanging</option>
+    <option>Battery / Charging Issue</option>
+    <option>Keyboard / Touchpad Issue</option>
+    <option>OS / Software Problem</option>
+    <option>Others</option>
+  </select>
+</div>
+
+<div class="card">
+  <h3>Service Location</h3>
+  <button id="locBtn" onclick="getLocation()">📍 Detect My Location</button>
+  <div class="loader" id="loader">
+    <span></span>Detecting location…
   </div>
+  <input id="area" placeholder="Area" readonly>
+  <input id="pincode" placeholder="Pincode" readonly>
+</div>
+
+<div class="card">
+  <h3>Full Address</h3>
+  <input id="building" placeholder="Building / Apartment">
+  <input id="flat" placeholder="Flat / Block">
+  <input id="street" placeholder="Street / Road">
+</div>
+
+<div class="card">
+  <h3>Schedule</h3>
+  <input type="date" id="date">
+  <select id="time">
+    <option>10 AM – 12 PM</option>
+    <option>12 PM – 2 PM</option>
+    <option>2 PM – 4 PM</option>
+    <option>4 PM – 6 PM</option>
+  </select>
+</div>
+
+<div class="card">
+  <button onclick="sendWhatsApp()">📲 Book via WhatsApp</button>
+</div>
+
 </div>
 
 <script>
-function openForm(){
-  document.getElementById("popup").style.display = "flex";
+let mapsLink="";
+
+const tomorrow=new Date();
+tomorrow.setDate(tomorrow.getDate()+1);
+document.getElementById("date").value=tomorrow.toISOString().split("T")[0];
+
+function getLocation(){
+  locBtn.disabled=true;
+  loader.style.display="block";
+
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    const lat=pos.coords.latitude;
+    const lon=pos.coords.longitude;
+    mapsLink=`https://maps.google.com/?q=${lat},${lon}`;
+
+    const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+    const d=await r.json();
+
+    area.value=d.address.suburb||d.address.area||"";
+    pincode.value=d.address.postcode||"";
+
+    loader.style.display="none";
+    locBtn.disabled=false;
+  },
+  ()=>{
+    loader.style.display="none";
+    locBtn.disabled=false;
+    alert("Unable to detect location");
+  });
 }
-function send(){
-  const msg =
-    "Hello, I want Laptop Repair Service." +
-    "%0AName: " + name.value +
-    "%0AMobile: " + phone.value +
-    "%0AArea: " + area.value;
-  window.open("https://wa.me/919036324311?text=" + msg);
+
+function sendWhatsApp(){
+  const msg=`Fixlyn Booking
+Service: Laptop Repair
+
+Name: ${custName.value}
+Phone: ${custPhone.value}
+Issue: ${issue.value}
+
+Address:
+${building.value}, ${flat.value}
+${street.value}
+${area.value} - ${pincode.value}
+
+Date: ${date.value}
+Time: ${time.value}
+
+Map: ${mapsLink}`;
+
+  window.open(`https://wa.me/919036324311?text=${encodeURIComponent(msg)}`);
 }
 </script>
 
