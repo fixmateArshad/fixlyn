@@ -1,110 +1,49 @@
-*{
-  box-sizing:border-box;
-  font-family: system-ui, -apple-system, Arial, sans-serif;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
 }
 
-body{
-  margin:0;
-  background:#f4f6f8;
-  color:#1a1a1a;
+.service-header {
+  background: #020617;
+  color: white;
+  padding: 25px;
+  text-align: center;
 }
 
-.container{
-  max-width:520px;
-  margin:auto;
-  padding:20px;
+.issues {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  padding: 20px;
 }
 
-/* HEADER */
-.service-header{
-  text-align:center;
-  padding:30px 20px 10px;
+.issues button {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-weight: bold;
 }
 
-.service-header h1{
-  margin:0;
-  font-size:28px;
-  font-weight:700;
+.booking {
+  padding: 20px;
 }
 
-.service-header p{
-  margin-top:8px;
-  font-size:14px;
-  color:#555;
+.booking input,
+.booking textarea,
+.booking button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
 }
 
-/* SECTION CARD */
-.section{
-  background:#fff;
-  border-radius:18px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 14px 35px rgba(0,0,0,.08);
-}
-
-.section h3{
-  margin:0 0 14px;
-  font-size:16px;
-}
-
-/* INPUTS */
-input, select{
-  width:100%;
-  padding:14px;
-  margin-bottom:12px;
-  border-radius:12px;
-  border:1px solid #d1d5db;
-  background:#fafafa;
-  font-size:14px;
-}
-
-input:focus, select:focus{
-  outline:none;
-  border-color:#111;
-  background:#fff;
-}
-
-/* BUTTON */
-button{
-  width:100%;
-  padding:16px;
-  border:none;
-  border-radius:14px;
-  background:#111;
-  color:#fff;
-  font-size:16px;
-  font-weight:500;
-  cursor:pointer;
-}
-
-/* LOCATION LOADER */
-.loader{
-  display:none;
-  margin-top:8px;
-  font-size:13px;
-  text-align:center;
-}
-
-.loader span{
-  display:inline-block;
-  width:18px;
-  height:18px;
-  border:3px solid #ccc;
-  border-top:3px solid #111;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-  vertical-align:middle;
-  margin-right:6px;
-}
-
-@keyframes spin{
-  to{transform:rotate(360deg)}
-}
-
-/* FOOTER INFO */
-.footer-note{
-  text-align:center;
-  font-size:13px;
-  color:#666;
-  margin-top:10px;
+.book-btn {
+  background: #16a34a;
+  color: white;
+  font-size: 16px;
+  border: none;
 }
