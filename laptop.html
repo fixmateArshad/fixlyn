@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laptop Repair & Service | Fixlyn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Fixlyn</div>
+</header>
+
+<div class="container">
+  <h1>Laptop Repair & Service</h1>
+  <p>We repair all laptop brands across Bangalore.</p>
+
+  <ul>
+    <li>No power / not turning on</li>
+    <li>Screen / display issues</li>
+    <li>Slow or hanging laptop</li>
+    <li>Battery / keyboard issues</li>
+  </ul>
+
+  <button onclick="openForm()">Book Now</button>
+</div>
+
+<div class="popup" id="popup">
+  <div class="form">
+    <input id="name" placeholder="Your Name">
+    <input id="phone" placeholder="Mobile Number">
+    <input id="area" placeholder="Area (Bangalore)">
+    <button onclick="send()">Send on WhatsApp</button>
+  </div>
+</div>
+
+<script>
+function openForm(){
+  document.getElementById("popup").style.display = "flex";
+}
+function send(){
+  const msg =
+    "Hello, I want Laptop Repair Service." +
+    "%0AName: " + name.value +
+    "%0AMobile: " + phone.value +
+    "%0AArea: " + area.value;
+  window.open("https://wa.me/919036324311?text=" + msg);
+}
+</script>
+
+</body>
+</html>
