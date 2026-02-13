@@ -1,241 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fixlyn – Trusted Home Appliance Repair in Bangalore</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Fixlyn provides reliable laptop, geyser, washing machine, refrigerator and microwave repair services across Bangalore. No platform fees. Direct technicians." />
-  <meta name="keywords" content="Laptop Repair Bangalore, Geyser Repair Bangalore, Washing Machine Repair, Fridge Repair, Microwave Repair, Fixlyn" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --dark: #1f1f1f;
-      --light: #ffffff;
-      --muted: #6b6b6b;
-      --accent: #2f80ed;
-      --bg: #f7f8fa;
-      --card: #ffffff;
-      --border: #e6e6e6;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--dark);
-    }
-
-    header {
-      background: var(--light);
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .cta-btn {
-      background: var(--accent);
-      color: white;
-      padding: 10px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .hero {
-      padding: 60px 24px;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--muted);
-      margin-bottom: 30px;
-    }
-
-    .hero span {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .services {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px 24px 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-
-    .service-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
-
-    .service-card h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .why {
-      background: var(--light);
-      padding: 60px 24px;
-    }
-
-    .why h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 28px;
-    }
-
-    .why-grid {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .why-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px;
-      background: var(--bg);
-    }
-
-    .why-card strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 16px;
-    }
-
-    footer {
-      background: var(--dark);
-      color: #ccc;
-      padding: 30px 24px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: #ccc;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixlyn – Home Appliance Repair & Service in Bangalore</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">Fixlyn</div>
-    <a class="cta-btn" href="https://wa.me/91XXXXXXXXXX">Book on WhatsApp</a>
-  </header>
+<header>
+  <div class="logo">Fixlyn</div>
+  <a class="call-btn" href="tel:9036324311">Call</a>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Reliable Home Appliance Repair in <span>Bangalore</span></h1>
-    <p>Direct technicians. No platform fees. No commission. Honest service at the right price.</p>
-  </section>
+<section class="hero">
+  <h1>Home Appliance Repair & Service in Bangalore</h1>
+  <p>Fast • Simple • Trusted • All Bangalore</p>
+</section>
 
-  <!-- SERVICES -->
-  <section class="services">
-    <div class="service-card">
-      <h3>Laptop Repair</h3>
-      <p>Hardware issues, upgrades, general service and troubleshooting at your doorstep.</p>
-    </div>
+<section class="services">
+  <a class="service-box" href="laptop.html">
+    <h3>Laptop Repair & Service</h3>
+  </a>
 
-    <div class="service-card">
-      <h3>Geyser Service</h3>
-      <p>Repair, installation and servicing for all geyser brands.</p>
-    </div>
+  <div class="service-box">
+    <h3>Washing Machine Repair</h3>
+  </div>
 
-    <div class="service-card">
-      <h3>Washing Machine</h3>
-      <p>Top load, front load repair and maintenance by trained technicians.</p>
-    </div>
+  <div class="service-box">
+    <h3>Refrigerator Repair</h3>
+  </div>
 
-    <div class="service-card">
-      <h3>Refrigerator</h3>
-      <p>Single door, double door and side-by-side fridge repairs.</p>
-    </div>
+  <div class="service-box">
+    <h3>Geyser Repair & Service</h3>
+  </div>
 
-    <div class="service-card">
-      <h3>Microwave Oven</h3>
-      <p>Solo, grill and convection microwave service and repair.</p>
-    </div>
-  </section>
+  <div class="service-box">
+    <h3>Microwave Repair & Service</h3>
+  </div>
+</section>
 
-  <!-- WHY CHOOSE -->
-  <section class="why">
-    <h2>Why Choose Fixlyn</h2>
+<section class="why">
+  <div>No Platform Fees</div>
+  <div>Direct Technician</div>
+  <div>Transparent Pricing</div>
+  <div>All Bangalore Coverage</div>
+</section>
 
-    <div class="why-grid">
-      <div class="why-card">
-        <strong>No Platform Fees</strong>
-        You pay only for the service, nothing extra.
-      </div>
-
-      <div class="why-card">
-        <strong>No Commission</strong>
-        Direct connection with technicians.
-      </div>
-
-      <div class="why-card">
-        <strong>No Hidden Charges</strong>
-        Transparent pricing after inspection.
-      </div>
-
-      <div class="why-card">
-        <strong>Full Bangalore Coverage</strong>
-        We serve all areas across Bangalore.
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Fixlyn · Home Appliance Repair Services · Bangalore <br/>
-    Call or WhatsApp: <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a>
-  </footer>
+<footer>
+  © Fixlyn – Bangalore<br>
+  Call / WhatsApp: 9036324311
+</footer>
 
 </body>
 </html>
