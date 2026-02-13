@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fixlyn Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/service.css">
+</head>
+<body>
 
+<div class="container">
+
+  <h2 id="serviceTitle"></h2>
+
+  <label>Select Problem</label>
+  <select id="problem">
+    <option value="">-- Select Problem --</option>
+    <option>Not Working</option>
+    <option>No Power</option>
+    <option>No Display</option>
+    <option>Installation</option>
+    <option>Noise / Leakage</option>
+    <option>Other Issue</option>
+  </select>
+
+  <label>Your Name</label>
+  <input id="name" placeholder="Enter your name">
+
+  <label>Mobile Number</label>
+  <input id="phone" placeholder="Enter mobile number">
+
+  <label>Select Date</label>
+  <input type="date" id="date">
+
+  <label>Select Time</label>
+  <select id="time">
+    <option>9 AM – 12 PM</option>
+    <option>12 PM – 3 PM</option>
+    <option>3 PM – 6 PM</option>
+    <option>6 PM – 9 PM</option>
+  </select>
+
+  <button class="location-btn" onclick="detectLocation()">📍 Detect Location</button>
+
+  <input id="area" placeholder="Area">
+  <input id="pincode" placeholder="Pincode">
+
+  <label>Address</label>
+  <input id="building" placeholder="Apartment / Building Name">
+  <div class="row">
+    <input id="flat" placeholder="Flat / Room No">
+    <input id="block" placeholder="Block / Tower">
+  </div>
+  <textarea id="address" placeholder="Full address"></textarea>
+
+  <button class="continue-btn" onclick="showReview()">Continue</button>
+
+  <div id="reviewBox">
+    <h3>Review Your Booking</h3>
+    <pre id="reviewText"></pre>
+    <button class="book-btn" onclick="sendWhatsApp()">Book Now on WhatsApp</button>
+  </div>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
