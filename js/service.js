@@ -1,62 +1,31 @@
-let mapsLink = "";
+let selectedIssue = '';
 
-const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
-document.getElementById("date").value =
-  tomorrow.toISOString().split("T")[0];
+function selectIssue(issue) {
+  selectedIssue = issue;
+  alert("Selected: " + issue);
+}
 
-function getLocation(){
-  const btn = document.getElementById("locBtn");
-  const loader = document.getElementById("loader");
-
-  btn.disabled = true;
-  loader.style.display = "block";
-
-  navigator.geolocation.getCurrentPosition(async pos=>{
-    const lat = pos.coords.latitude;
-    const lon = pos.coords.longitude;
-
-    mapsLink = `https://maps.google.com/?q=${lat},${lon}`;
-
-    const r = await fetch(
-      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
-    );
-    const d = await r.json();
-
-    document.getElementById("area").value =
-      d.address.suburb || d.address.area || "";
-    document.getElementById("pincode").value =
-      d.address.postcode || "";
-
-    loader.style.display = "none";
-    btn.disabled = false;
-  },
-  ()=>{
-    loader.style.display = "none";
-    btn.disabled = false;
-    alert("Unable to detect location");
+function detectLocation() {
+  navigator.geolocation.getCurrentPosition(pos => {
+    document.getElementById('area').value = 'Bangalore';
+    document.getElementById('pincode').value = '';
   });
 }
 
-function sendWhatsApp(){
-  const msg = `Fixlyn Booking
-Service: Laptop Repair
+function sendWhatsApp() {
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const area = document.getElementById('area').value;
+  const pincode = document.getElementById('pincode').value;
+  const address = document.getElementById('address').value;
 
-Name: ${custName.value}
-Phone: ${custPhone.value}
-Issue: ${issue.value}
+  const msg = `Fixlyn Service Booking%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Issue: ${selectedIssue}%0A
+Area: ${area}%0A
+Pincode: ${pincode}%0A
+Address: ${address}`;
 
-Address:
-${building.value}, ${flat.value}
-${street.value}
-${area.value} - ${pincode.value}
-
-Date: ${date.value}
-Time: ${time.value}
-
-Map: ${mapsLink}`;
-
-  window.open(
-    `https://wa.me/919036324311?text=${encodeURIComponent(msg)}`
-  );
+  window.open(`https://wa.me/919036324311?text=${msg}`, '_blank');
 }
