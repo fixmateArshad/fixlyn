@@ -1,0 +1,96 @@
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#f5f7fb;
+  font-family:system-ui, -apple-system, Arial, sans-serif;
+  color:#1a1a1a;
+}
+
+.container{
+  max-width:520px;
+  margin:auto;
+  padding:20px;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:20px;
+  font-size:22px;
+  font-weight:700;
+}
+
+label{
+  display:block;
+  margin:14px 0 6px;
+  font-size:14px;
+  font-weight:600;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  font-size:14px;
+  background:#ffffff;
+}
+
+textarea{
+  resize:none;
+  height:80px;
+}
+
+.row{
+  display:flex;
+  gap:10px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  margin-top:18px;
+  border:none;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.location-btn{
+  background:#e5e7eb;
+  color:#111827;
+}
+
+.continue-btn{
+  background:#111827;
+  color:#ffffff;
+}
+
+.book-btn{
+  background:#16a34a;
+  color:#ffffff;
+}
+
+#reviewBox{
+  display:none;
+  margin-top:24px;
+  padding:16px;
+  background:#ffffff;
+  border-radius:16px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.1);
+}
+
+#reviewBox h3{
+  margin-top:0;
+}
+
+pre{
+  white-space:pre-wrap;
+  font-size:13px;
+  background:#f3f4f6;
+  padding:12px;
+  border-radius:10px;
+}
