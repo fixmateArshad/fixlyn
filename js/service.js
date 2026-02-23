@@ -22,20 +22,57 @@ const tomorrow=new Date();
 tomorrow.setDate(tomorrow.getDate()+1);
 date.value=tomorrow.toISOString().split("T")[0];
 
-let mapLink="";
+let mapLink = "";
 
-function detectLocation(){
-  navigator.geolocation.getCurrentPosition(async pos=>{
-    mapLink=`https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude}`;
-    const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`);
-    const d=await r.json();
-    area.value=d.address.suburb||"";
-    pincode.value=d.address.postcode||"";
-  });
+function detectLocation() {
+  const loading = document.getElementById("locLoading");
+  loading.style.display = "inline";
+
+  if (!navigator.geolocation) {
+    alert("Geolocation not supported");
+    loading.style.display = "none";
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      mapLink = `https://www.google.com/maps?q=${lat},${lng}`;
+
+      try {
+        const res = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+        );
+        const data = await res.json();
+
+        const area =
+          data.address.suburb ||
+          data.address.neighbourhood ||
+          data.address.city ||
+          "";
+
+        const pincode = data.address.postcode || "";
+
+        document.getElementById("area").value =
+          area + (pincode ? " - " + pincode : "");
+      } catch (e) {
+        console.log("Address fetch failed");
+      }
+
+      loading.style.display = "none";
+    },
+    () => {
+      alert("Location permission denied");
+      loading.style.display = "none";
+    }
+  );
 }
 
 function sendWhatsApp() {
-  const service = document.getElementById("serviceTitle")?.innerText || "Fixlyn Service";
+  const service =
+    document.getElementById("serviceTitle")?.innerText || "Fixlyn Service";
   const name = document.getElementById("name").value;
   const mobile = document.getElementById("mobile").value;
   const problem = document.getElementById("problem").value;
@@ -50,7 +87,7 @@ function sendWhatsApp() {
   }
 
   const message =
-`*New Service Booking - Fixlyn*
+`*New Booking – Fixlyn*
 
 Service: ${service}
 Problem: ${problem}
@@ -62,7 +99,10 @@ Date: ${date}
 Time: ${time}
 
 Area: ${area}
-Address: ${address}`;
+Address: ${address}
+
+📍 Location:
+${mapLink || "Not shared"}`;
 
   const phone = "919036324311"; // YOUR NUMBER
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
