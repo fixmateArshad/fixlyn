@@ -27,7 +27,11 @@
   </select>
   </div>
 
-  <button onclick="detectLocation()">Detect Location</button>
+  <button type="button" onclick="detectLocation()" id="locBtn">
+  📍 Detect Location
+</button>
+
+<span id="locLoading" style="display:none;">Detecting location...</span>
 
   <input id="area" placeholder="Area">
   <input id="pincode" placeholder="Pincode">
