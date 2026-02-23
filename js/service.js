@@ -34,17 +34,38 @@ function detectLocation(){
   });
 }
 
-function book(){
-  const msg=`Fixlyn Service Booking
-Service: ${service}
-Problem: ${problem.value}
-Name: ${name.value}
-Phone: ${phone.value}
-Date: ${date.value}
-Time: ${time.value}
-Address: ${building.value}, ${flat.value}, ${address.value}
-${area.value} - ${pincode.value}
-Map: ${mapLink}`;
+function sendWhatsApp() {
+  const service = document.getElementById("serviceTitle")?.innerText || "Fixlyn Service";
+  const name = document.getElementById("name").value;
+  const mobile = document.getElementById("mobile").value;
+  const problem = document.getElementById("problem").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const area = document.getElementById("area").value;
+  const address = document.getElementById("address").value;
 
-  window.open(`https://wa.me/919036324311?text=${encodeURIComponent(msg)}`);
+  if (!name || !mobile || !problem || !date || !time) {
+    alert("Please fill all required fields");
+    return;
+  }
+
+  const message =
+`*New Service Booking - Fixlyn*
+
+Service: ${service}
+Problem: ${problem}
+
+Name: ${name}
+Mobile: ${mobile}
+
+Date: ${date}
+Time: ${time}
+
+Area: ${area}
+Address: ${address}`;
+
+  const phone = "919036324311"; // YOUR NUMBER
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
 }
